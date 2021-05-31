@@ -21,10 +21,10 @@ function Button(props) {
       <span className={className.join(" ")} style={props.style}>
         {
             props.isLoading ? (
-                <> 
+                <React.Fragment> 
                 <span className="spinner-border spinner-border-sm mx-5"></span>
                 <span className="sr-only">Loading...</span> 
-            </>
+            </React.Fragment>
             ) : (
                 props.children
             )
@@ -33,15 +33,15 @@ function Button(props) {
     );
   }
 
-  if (props.type == "link") {
+  if (props.type === "link") {
     if (props.isExternal) {
       return (
         <a
           href={props.href}
           className={className.join(" ")}
           style={props.style}
-          target={props.target == "_blank" ? "_blank" : undefined}
-          rel={props.target == "_blank" ? "_blank" : "noopener noreferrer"}
+          target={props.target === "_blank" ? "_blank" : undefined}
+          rel={props.target === "_blank" ? "_blank" : "noopener noreferrer"}
         >
           {props.children}
         </a>
