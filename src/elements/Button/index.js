@@ -53,6 +53,7 @@ function Button(props) {
           className={className.join(" ")}
           style={props.style}
           onClick={onClick}
+          rel={props.target === "_blank" ? "_blank" : "noopener noreferrer"}
         >
           {props.children}
         </Link>
@@ -78,6 +79,7 @@ Button.propTypes = {
   href: propTypes.string,
   className: propTypes.string,
   isExternal: propTypes.bool,
+  isPrimary: propTypes.bool,
   isDisabled: propTypes.bool,
   isLoading: propTypes.bool,
   isSmall: propTypes.bool,
